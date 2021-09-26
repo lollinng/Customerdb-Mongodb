@@ -12,7 +12,7 @@ def Index():
     all_data = helper.fetch_all()
     return render_template("index.html", customer = all_data)
 
-#this route is for inserting data to oracle database via html forms
+#this route is for inserting data to mongodb database via html forms
 @app.route('/insert', methods = ['POST'])
 def insert():
 
