@@ -20,10 +20,30 @@ def insert():
         name = request.form['name']
         email = request.form['email']
         phone = request.form['phone']
-        products = request.form['products']
-        shopping_value = request.form['shopping_value']
+        no_products = request.form['no_products']
+        
+        product1 = request.form['product1']
+        productname1 = request.form['productname1']
+        productprice1 = request.form['productprice1']
+        category1 = request.form['category1']
 
-        helper.insert_user(name, email, phone,products,shopping_value)
+        product2 = request.form['product2']
+        productname2 = request.form['productname2']
+        productprice2 = request.form['productprice2']
+        category2 = request.form['category2']
+
+        product3 = request.form['product3']
+        productname3 = request.form['productname3']
+        productprice3 = request.form['productprice3']
+        category3 = request.form['category3']
+
+        helper.insert_user(            
+            name, email, phone,no_products,
+            product1,productname1,productprice1,category1,
+            product2,productname2,productprice2,category2,
+            product3,productname3,productprice3,category3,
+        )
+        
         flash("Customer Data Inserted Successfully")
         return redirect(url_for('Index'))
 
@@ -31,13 +51,33 @@ def insert():
 @app.route('/update', methods = ['GET', 'POST'])
 def update():
     if request.method == 'POST':
-        new_name = request.form['name']
-        new_email = request.form['email']
-        new_phone = request.form['phone']
-        new_products = request.form['products']
-        new_shopping_value = request.form['shopping_value']
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+        no_products = request.form['no_products']
+        
+        product1 = request.form['product1']
+        productname1 = request.form['productname1']
+        productprice1 = request.form['productprice1']
+        category1 = request.form['category1']
 
-        helper.update_user(new_name, new_email, new_phone,new_products,new_shopping_value)
+        product2 = request.form['product2']
+        productname2 = request.form['productname2']
+        productprice2 = request.form['productprice2']
+        category2 = request.form['category2']
+
+        product3 = request.form['product3']
+        productname3 = request.form['productname3']
+        productprice3 = request.form['productprice3']
+        category3 = request.form['category3']
+        
+
+        helper.update_user(
+            name, email, phone,no_products,
+            product1,productname1,productprice1,category1,
+            product2,productname2,productprice2,category2,
+            product3,productname3,productprice3,category3,
+        )
         flash("Customer Data Updated Successfully")
 
         return redirect(url_for('Index'))
@@ -48,6 +88,12 @@ def delete(email):
     helper.delete_user(email)
     flash("Customer Data Deleted Successfully")
     return redirect(url_for('Index'))
+
+# This route is for getting the details of the customer
+@app.route('/details/<email>/', methods = ['GET', 'POST'])
+def details(email):
+    all_data = helper.fetch_user(email)
+    return render_template("details.html", customer = all_data)
 
 if __name__ == "__main__":
     app.run(debug=True)
