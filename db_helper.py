@@ -17,6 +17,10 @@ class DBHELPER:
         }
         information.insert_one(record)
         print('user saved to db')
+        
+    def fetch_user(self,email):
+        for record in information.find({'email':email}):
+            return record
 
     def fetch_all(self):
         dataset = information.find({})
