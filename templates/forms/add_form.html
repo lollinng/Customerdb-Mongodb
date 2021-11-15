@@ -1,0 +1,87 @@
+{% block body %}
+ 
+<div id="mymodal" class='modal fade' role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add customer</h4>
+            </div>
+            <div class="modal-body">
+                <form action="{{url_for('insert')}}" method="POST">
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text" class="form-control" name="name" required="1">
+                    </div>
+                    <div class="form-group">
+                        <label>email:</label>
+                        <input type="email" class="form-control" name="email" required="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone:</label>
+                        <input type="number" class="form-control" name="phone" required="1">
+                    </div>
+                    <div class="form-group">
+                        <label>No. of Products:</label>
+                        <input type="number" class="form-control" name="no_products" required="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 1 id:</label>
+                        <input type="number" class="form-control" name="product1" required="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 1 name:</label>
+                        <input type="text" class="form-control" name="productname1" required="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 1 price:</label>
+                        <input type="number" class="form-control" name="productprice1" required="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 1 Category id:</label>
+                        <input type="number" class="form-control" name="category1" required="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 2 id:</label>
+                        <input type="number" class="form-control" name="product2">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 2 name:</label>
+                        <input type="text" class="form-control" name="productname2">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 2 price:</label>
+                        <input type="number" class="form-control" name="productprice2">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 2 Category id:</label>
+                        <input type="number" class="form-control" name="category2">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 3 id:</label>
+                        <input type="number" class="form-control" name="product3">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 3 name:</label>
+                        <input type="text" class="form-control" name="productname3">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 3 price:</label>
+                        <input type="number" class="form-control" name="productprice3">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 3 Category id:</label>
+                        <input type="number" class="form-control" name="category3">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit">Add Customer</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

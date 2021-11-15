@@ -1,0 +1,88 @@
+{% block body %}
+<div id="modaledit{{row['phone']}}" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Update Information</h4>
+            </div>
+            <div class="modal-body">
+                <form action="{{url_for('update')}}" method="POST">
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text" class="form-control" name="name" value="{{row['name']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" class="form-control" name="email" value="{{row['email']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone:</label>
+                        <input type="number" class="form-control" name="phone" value="{{row['phone']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>No. of Product:</label>
+                        <input type="number" class="form-control" name="no_products" value="{{row['no_products']}}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Product 1 id:</label>
+                        <input type="number" class="form-control" name="product1" value="{{row['products'][0]['product']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 1 name:</label>
+                        <input type="text" class="form-control" name="productname1"  value="{{row['products'][0]['productname']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 1 price:</label>
+                        <input type="number" class="form-control" name="productprice1"  value="{{row['products'][0]['productprice']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 1 Category id:</label>
+                        <input type="number" class="form-control" name="category1"  value="{{row['products'][0]['category']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 2 id:</label>
+                        <input type="number" class="form-control" name="product2" value="{{row['products'][1]['product']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 2 name:</label>
+                        <input type="text" class="form-control" name="productname2" value="{{row['products'][1]['productname']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 2 price:</label>
+                        <input type="number" class="form-control" name="productprice2" value="{{row['products'][1]['productprice']}}" >
+                    </div>
+                    <div class="form-group">
+                        <label>Product 2 Category id:</label>
+                        <input type="number" class="form-control" name="category2" value="{{row['products'][1]['category']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 3 id:</label>
+                        <input type="number" class="form-control" name="product3" value="{{row['products'][2]['product']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 3 name:</label>
+                        <input type="text" class="form-control" name="productname3" value="{{row['products'][2]['productname']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 3 price:</label>
+                        <input type="number" class="form-control" name="productprice3" value="{{row['products'][2]['productprice']}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Product 3 Category id:</label>
+                        <input type="number" class="form-control" name="category3" value="{{row['products'][2]['category']}}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
