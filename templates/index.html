@@ -10,11 +10,26 @@
 {% block body %}
 
 <div class="container">
-    <div class="row">
+    <div class="col">
+
         <div class="col md-12">
             <div class="jumbotron p-3">
+                <h2>Search <b>Customer Information</b>
+                <form class="form-inline float-right" method=POST action="{{url_for('search')}}">
+                    <input class="form-control mr-sm-2" type="search" name ='email'placeholder="Search" aria-label="Search">
+                    <button class="btn btn-warning btn-xs" type="submit">Search</button>
+                </form> 
+                </h2>
+            </div>
+            
+        </div>
+        
+
+        <div class="col md-12">
+            <div class="jumbotron p-3">
+                
                 <!-- the first heading -->
-                <h2>Manage <b>Customer Information</b> 
+                <h2>Manage <b>Customer Information</b>
                     <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#mymodal">
                     Add New Customer
                 </h2>
