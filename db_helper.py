@@ -43,7 +43,6 @@ class DBHELPER:
         return dataset
 
     def delete_user(self,email):
-        print(email)
         information.delete_one(
             { "email": email} 
         )
@@ -57,8 +56,8 @@ class DBHELPER:
     
         if productprice2 == '':
             productprice2 = 0
-            if productprice3 == '':
-                productprice3 = 0
+        if productprice3 == '':
+            productprice3 = 0
 
         information.update_one(
             {"email":email},

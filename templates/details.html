@@ -10,11 +10,11 @@
 {% block body %}
 
 
+
 <div class="container">
     <div class="row">
         <div class="col md-12">
             <div class="jumbotron p-3">
-
                 <!-- table -->
                 <table class="table table-hover table-dark">
                     <!-- heading -->
@@ -22,19 +22,20 @@
                         <th style="text-align:center">Category</th>
                         <th style="text-align:center">Data</th>
                     </tr>
-                        <tr>
-                            <th style="text-align:center">Name</th>
-                            <td style="text-align:center">{{customer['name']}}</td>
-                        </tr>
-                        <tr>
-                            <th style="text-align:center">Email</th>
-                            <td style="text-align:center">{{customer['email']}}</td>
-                            
-                        </tr>
-                        <tr>
-                            <th style="text-align:center">Phone no.</th>
-                            <td style="text-align:center">{{customer['phone']}}</td>
-                        </tr>
+                    <tr>
+                        <th style="text-align:center">Name</th>
+                        <td style="text-align:center">{{customer['name']}}</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center">Email</th>
+                        <td style="text-align:center">{{customer['email']}}</td>
+                        
+                    </tr>
+                    <tr>
+                        <th style="text-align:center">Phone no.</th>
+                        <td style="text-align:center">{{customer['phone']}}</td>
+                    </tr>
+                    {% if type =='admin'%}
                         <tr>
                             <th style="text-align:center">no. of products</th>
                             <td style="text-align:center">{{customer['no_products']}}</td>
@@ -70,9 +71,12 @@
                             <th style="text-align:center">Shoppping value</th>
                             <td style="text-align:center">{{customer['shopping_value']}}</td>
                         </tr>
+                    {% endif %}
                 </table>
             </div>
         </div>
     </div>
+</div>
+
 
 {% endblock %}

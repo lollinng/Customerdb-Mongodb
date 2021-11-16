@@ -7,16 +7,43 @@
  
  
 {% block body %}
- 
-<div class="jumbotron p-3">
-    <div class="well text-center">
- 
-        <h1>Customer Database Management </h1>
- 
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Customer Database </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+    </button> 
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Sales</a>
+        </li>
+
+        {% if type =='admin'%}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('register')}}">Add an Admin</a>
+            </li>
+        {% endif %}
+        
+    </ul>
+    <a href="{{ url_for('login') }}" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-log-out"></span> Log out
+    </a>
     </div>
- 
- 
+</nav>
+
+<div class="jumbotron p-3">
+    <div class="row well text-center">
+        <h1> </h1>
+        
+    </div>
 </div>
- 
- 
+
 {% endblock %}
