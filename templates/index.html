@@ -10,13 +10,30 @@
 {% block body %}
 
 <div class="container">
-    <div class="row">
+    <div class="col">
+
         <div class="col md-12">
             <div class="jumbotron p-3">
+                <h2>Search <b>Customer Information</b>
+                <form class="form-inline float-right" method=POST action="{{url_for('search')}}">
+                    <input class="form-control mr-sm-2" type="search" name ='email'placeholder="Search" aria-label="Search">
+                    <button class="btn btn-warning btn-xs" type="submit">Search</button>
+                </form> 
+                </h2>
+            </div>
+            
+        </div>
+        
+
+        <div class="col md-12">
+            <div class="jumbotron p-3">
+                
                 <!-- the first heading -->
-                <h2>Manage <b>Customer Information</b> 
-                    <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#mymodal">
+                <h2>Manage <b>Customer Information</b>
+                    <a style='text-decoration: none;color: inherit;' href="{{ url_for('customer')}}">
+                    <button type="button" class="btn btn-success float-right" data-toggle="modal" >
                     Add New Customer
+                </a>
                 </h2>
 
                 {% with messages = get_flashed_messages() %}
@@ -74,14 +91,7 @@
  
 
                 </table>
-            </div>
-
-
-
-            <!-- Modal Add customer -->
-            <!-- a pop up box when we click the add button -->
-            {% include 'forms/add_form.html' %}
-            
+            </div>            
         </div>
     </div>
 
