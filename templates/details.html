@@ -10,69 +10,55 @@
 {% block body %}
 
 
+
 <div class="container">
     <div class="row">
         <div class="col md-12">
             <div class="jumbotron p-3">
-
-                <!-- table -->
                 <table class="table table-hover table-dark">
-                    <!-- heading -->
                     <tr>
-                        <th style="text-align:center">Category</th>
+                        <th style="text-align:center">Field</th>
                         <th style="text-align:center">Data</th>
                     </tr>
+                    <tr>
+                        <th style="text-align:center">Name</th>
+                        <td style="text-align:center">{{customer['name']}}</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center">Email</th>
+                        <td style="text-align:center">{{customer['email']}}</td>
+                        
+                    </tr>
+                    <tr>
+                        <th style="text-align:center">Phone Number</th>
+                        <td style="text-align:center">{{customer['phone']}}</td>
+                    </tr>
+                    {% if type =='admin'%}
                         <tr>
-                            <th style="text-align:center">Name</th>
-                            <td style="text-align:center">{{customer['name']}}</td>
-                        </tr>
-                        <tr>
-                            <th style="text-align:center">Email</th>
-                            <td style="text-align:center">{{customer['email']}}</td>
-                            
-                        </tr>
-                        <tr>
-                            <th style="text-align:center">Phone no.</th>
-                            <td style="text-align:center">{{customer['phone']}}</td>
-                        </tr>
-                        <tr>
-                            <th style="text-align:center">no. of products</th>
+                            <th style="text-align:center">Count of Products</th>
                             <td style="text-align:center">{{customer['no_products']}}</td>
                         </tr>
-                        <tr>
-                            <th style="text-align:center">Product1</th>
-                            <td style="text-align:center">
-                                id: {{customer['products'][0]['product']}} ,
-                                Name: {{customer['products'][0]['productname']}} ,
-                                Price: {{customer['products'][0]['productprice']}} ,
-                                catID: {{customer['products'][0]['category']}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="text-align:center">Product2</th>
-                            <td style="text-align:center">
-                                id: {{customer['products'][1]['product']}} ,
-                                Name: {{customer['products'][1]['productname']}} ,
-                                Price: {{customer['products'][1]['productprice']}} ,
-                                catID: {{customer['products'][1]['category']}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="text-align:center">Product3</th>
-                            <td style="text-align:center">
-                                id: {{customer['products'][2]['product']}} ,
-                                Name: {{customer['products'][2]['productname']}} ,
-                                Price: {{customer['products'][2]['productprice']}} ,
-                                catID: {{customer['products'][2]['category']}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="text-align:center">Shoppping value</th>
-                            <td style="text-align:center">{{customer['shopping_value']}}</td>
-                        </tr>
+                        {% for i in customer['products']%}
+                            <tr>
+                                <th style="text-align:center">Product :</th>
+                                <td style="text-align:center">
+                                    id: {{ i['product']}} ,
+                                    Name: {{i['productname']}} ,
+                                    Price: {{i['productprice']}} ,
+                                    catID: {{i['category']}}
+                                </td>
+                            </tr>
+                        {%endfor%}
+                            <tr>
+                                <th style="text-align:center">Shoppping value</th>
+                                <td style="text-align:center">{{customer['shopping_value']}}</td>
+                            </tr>
+                    {% endif %}
                 </table>
             </div>
         </div>
     </div>
+</div>
+
 
 {% endblock %}
